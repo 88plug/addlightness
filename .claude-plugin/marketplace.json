@@ -1,0 +1,22 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "addlightness",
+  "description": "Simplify, then add lightness. Removes AI-generated code fat while preserving behavior, then benchmarks the speedup.",
+  "owner": {
+    "name": "88plug",
+    "email": "andrew@88plug.com"
+  },
+  "plugins": [
+    {
+      "name": "addlightness",
+      "source": "./",
+      "displayName": "addlightness",
+      "description": "Removes AI-generated code fat while preserving functionality, then benchmarks the speedup -- multi-pass measure/trim/verify/benchmark with zero npm dependencies.",
+      "author": { "name": "88plug", "email": "andrew@88plug.com" },
+      "homepage": "https://github.com/88plug/addlightness",
+      "license": "MIT",
+      "category": "productivity",
+      "tags": ["type:plugin", "code-quality", "refactoring", "performance", "benchmarking", "dead-code", "complexity", "code-weight", "ai-code-cleanup"]
+    }
+  ]
+}

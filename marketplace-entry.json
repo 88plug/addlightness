@@ -1,0 +1,8 @@
+{
+  "name": "addlightness",
+  "source": { "source": "github", "repo": "88plug/addlightness" },
+  "description": "Simplify, then add lightness. Removes AI-generated code fat while preserving functionality, then benchmarks the speedup -- multi-pass measure/trim/verify/benchmark with zero npm dependencies.",
+  "category": "productivity",
+  "tags": ["type:plugin", "code-quality", "refactoring", "performance", "benchmarking", "dead-code", "complexity", "code-weight", "ai-code-cleanup"],
+  "homepage": "https://github.com/88plug/addlightness"
+}

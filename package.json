@@ -1,0 +1,47 @@
+{
+  "name": "addlightness",
+  "version": "2026.6.21",
+  "description": "Simplify, then add lightness -- a Claude Code plugin that removes AI-generated code fat while preserving functionality, then benchmarks the speedup.",
+  "author": "88plug",
+  "license": "MIT",
+  "homepage": "https://github.com/88plug/addlightness",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/88plug/addlightness.git"
+  },
+  "keywords": [
+    "claude-code",
+    "claude",
+    "anthropic",
+    "ai",
+    "llm",
+    "ai-agents",
+    "developer-tools",
+    "productivity",
+    "automation",
+    "cli",
+    "claude-code-plugin",
+    "claude-skills",
+    "code-quality",
+    "refactoring",
+    "performance",
+    "benchmarking",
+    "dead-code",
+    "complexity",
+    "code-weight",
+    "ai-code-cleanup"
+  ],
+  "files": [
+    ".claude-plugin",
+    "hooks",
+    "lib",
+    "scripts",
+    "skills",
+    "agents",
+    "README.md",
+    "CLAUDE.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
+}

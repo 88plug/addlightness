@@ -1,0 +1,19 @@
+# OS / editor
+.DS_Store
+*.swp
+*~
+
+# node (none shipped — guard against accidental installs)
+node_modules/
+
+# build / docs site output
+site/
+
+# transient engine backups left by the trimmer
+*.bak
+*.r2bak
+*.r3bak
+
+# python
+__pycache__/
+*.pyc

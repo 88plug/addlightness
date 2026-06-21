@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin.json",
+  "name": "addlightness",
+  "displayName": "addlightness",
+  "description": "Simplify, then add lightness. Removes AI-generated code fat while preserving functionality, then benchmarks the speedup. Multi-pass: measure weight -> trim -> verify equivalence -> benchmark.",
+  "author": { "name": "88plug", "email": "andrew@88plug.com" },
+  "homepage": "https://github.com/88plug/addlightness",
+  "repository": "https://github.com/88plug/addlightness",
+  "version": "2026.6.21",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "claude",
+    "anthropic",
+    "ai",
+    "llm",
+    "ai-agents",
+    "developer-tools",
+    "productivity",
+    "automation",
+    "cli",
+    "claude-code-plugin",
+    "claude-skills",
+    "code-quality",
+    "refactoring",
+    "performance",
+    "benchmarking",
+    "dead-code",
+    "complexity",
+    "code-weight",
+    "ai-code-cleanup"
+  ],
+  "hooks": {
+    "SessionStart": [
+      { "hooks": [ { "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/session-start.js\"", "timeout": 5, "statusMessage": "Loading addlightness..." } ] }
+    ],
+    "Stop": [
+      { "hooks": [ { "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/stop-offer-trim.js\"", "timeout": 5, "statusMessage": "Checking for trimmable code..." } ] }
+    ]
+  }
+}
