@@ -6,7 +6,6 @@
   "author": { "name": "88plug", "email": "andrew@88plug.com" },
   "homepage": "https://github.com/88plug/addlightness",
   "repository": "https://github.com/88plug/addlightness.git",
-  "version": "2026.6.21",
   "license": "FSL-1.1-ALv2",
   "keywords": [
     "claude-code",

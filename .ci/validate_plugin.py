@@ -38,7 +38,7 @@ def load_json(rel):
 # --- manifest ---------------------------------------------------------------
 mani = load_json(".claude-plugin/plugin.json")
 if mani:
-    for field in ("name", "description", "version", "license", "keywords", "hooks"):
+    for field in ("name", "description", "license", "keywords", "hooks"):
         check(field in mani, f"manifest missing required field: {field}")
     kw = mani.get("keywords", [])
     check(len(kw) == 20, f"manifest must have exactly 20 keywords, has {len(kw)}")
