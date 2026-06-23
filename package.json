@@ -3,7 +3,7 @@
   "version": "2026.6.21",
   "description": "Simplify, then add lightness -- a Claude Code plugin that removes AI-generated code fat while preserving functionality, then benchmarks the speedup.",
   "author": "88plug",
-  "license": "MIT",
+  "license": "FSL-1.1-ALv2",
   "homepage": "https://github.com/88plug/addlightness",
   "repository": {
     "type": "git",

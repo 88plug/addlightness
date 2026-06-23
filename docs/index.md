@@ -113,6 +113,6 @@ proof — run it after a trim.
 ## Links
 
 - [Source on GitHub](https://github.com/88plug/addlightness)
-- [Contributing](https://github.com/88plug/addlightness/blob/master/CONTRIBUTING.md)
-- [Architecture notes (CLAUDE.md)](https://github.com/88plug/addlightness/blob/master/CLAUDE.md)
-- [License (MIT)](https://github.com/88plug/addlightness/blob/master/LICENSE)
+- [Contributing](https://github.com/88plug/addlightness/blob/main/CONTRIBUTING.md)
+- [Architecture notes (CLAUDE.md)](https://github.com/88plug/addlightness/blob/main/CLAUDE.md)
+- [License (FSL-1.1-ALv2)](https://github.com/88plug/addlightness/blob/main/LICENSE)

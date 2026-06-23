@@ -1,13 +1,13 @@
 {
-  "$schema": "https://json.schemastore.org/claude-code-plugin.json",
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "addlightness",
   "displayName": "addlightness",
   "description": "Simplify, then add lightness. Removes AI-generated code fat while preserving functionality, then benchmarks the speedup. Multi-pass: measure weight -> trim -> verify equivalence -> benchmark.",
   "author": { "name": "88plug", "email": "andrew@88plug.com" },
   "homepage": "https://github.com/88plug/addlightness",
-  "repository": "https://github.com/88plug/addlightness",
+  "repository": "https://github.com/88plug/addlightness.git",
   "version": "2026.6.21",
-  "license": "MIT",
+  "license": "FSL-1.1-ALv2",
   "keywords": [
     "claude-code",
     "claude",
@@ -32,10 +32,10 @@
   ],
   "hooks": {
     "SessionStart": [
-      { "hooks": [ { "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/session-start.js\"", "timeout": 5, "statusMessage": "Loading addlightness..." } ] }
+      { "hooks": [ { "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/session-start.js\"", "timeout": 15, "statusMessage": "Loading addlightness..." } ] }
     ],
     "Stop": [
-      { "hooks": [ { "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/stop-offer-trim.js\"", "timeout": 5, "statusMessage": "Checking for trimmable code..." } ] }
+      { "hooks": [ { "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/stop-offer-trim.js\"", "timeout": 20, "statusMessage": "Checking for trimmable code..." } ] }
     ]
   }
 }

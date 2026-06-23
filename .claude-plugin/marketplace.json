@@ -14,7 +14,7 @@
       "description": "Removes AI-generated code fat while preserving functionality, then benchmarks the speedup -- multi-pass measure/trim/verify/benchmark with zero npm dependencies.",
       "author": { "name": "88plug", "email": "andrew@88plug.com" },
       "homepage": "https://github.com/88plug/addlightness",
-      "license": "MIT",
+      "license": "FSL-1.1-ALv2",
       "category": "productivity",
       "tags": ["type:plugin", "code-quality", "refactoring", "performance", "benchmarking", "dead-code", "complexity", "code-weight", "ai-code-cleanup"]
     }

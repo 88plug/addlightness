@@ -3,7 +3,7 @@ site_description: Simplify, then add lightness — remove AI-generated code fat 
 site_url: https://88plug.github.io/addlightness/
 repo_url: https://github.com/88plug/addlightness
 repo_name: 88plug/addlightness
-edit_uri: edit/master/docs/
+edit_uri: edit/main/docs/
 
 theme:
   name: material
