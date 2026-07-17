@@ -16,19 +16,16 @@ Simplify, then add lightness — a Claude Code plugin that strips AI-generated c
 
 ## Install
 
-From a marketplace that lists it (inside Claude Code):
+From the 88plug marketplace (inside Claude Code):
 
 ```bash
-/plugin marketplace add 88plug/addlightness
-/plugin install addlightness
+/plugin marketplace add 88plug/claude-code-plugins
+/plugin install addlightness@88plug
 ```
 
-Or manually, without the marketplace flow: clone the repo and enable it in your
-Claude Code settings by adding it to `enabledPlugins` in `~/.claude/settings.json`
-(using the `"<plugin>@<marketplace>"` form once the marketplace is resolvable), or
-add its local path via the `/plugin` command. Then run `./install.sh`, which
-chmods the hooks, lib, and benchmark scripts; checks for node (required) and
-python3 (optional, for accurate `.py` metrics); and runs a `weigh.js` smoke test.
+Then run `./install.sh` from the plugin root. It chmods hooks, lib, and benchmark scripts; checks for Node (required) and python3 (optional, for accurate `.py` metrics); and runs a `weigh.js` smoke test.
+
+Or manually, without the marketplace flow: clone the repo and enable it in your Claude Code settings by adding it to `enabledPlugins` in `~/.claude/settings.json` (using the `"<plugin>@<marketplace>"` form once the marketplace is resolvable), or add its local path via the `/plugin` command.
 
 ## Quickstart (under 60s)
 
@@ -52,21 +49,13 @@ verify:  signature-match (syntax + export/signature parity held)
 bench:   1.42x faster (mean 8.1ms -> 5.7ms, t=4.3, significant)
 ```
 
-(Small files often benchmark as "not significant" — runtime is noise-dominated
-and the Welch gate refuses to claim a win it can't prove. See the FAQ.)
+(Small files often benchmark as "not significant" — runtime is noise-dominated and the Welch gate refuses to claim a win it can't prove. See the FAQ.)
 
-Every edit is gated by an equivalence check before it is reported, and every
-speedup claim is gated by a statistical-significance test. Nothing ships unless
-it passes both.
+Every edit is gated by an equivalence check before it is reported, and every speedup claim is gated by a statistical-significance test. Nothing ships unless it passes both.
 
 ## Why / who it's for
 
-AI coding assistants produce code that works but carries weight: speculative
-abstractions, dead branches, redundant control flow, defensive checks on values
-that can never be malformed. addlightness measures that weight, removes it in
-small verified passes, gates every change against a regression check, and only
-claims a speedup the Welch test confirms. It's for anyone shipping AI-assisted code who wants the output
-trimmed without silently changing what it does.
+AI coding assistants produce code that works but carries weight: speculative abstractions, dead branches, redundant control flow, defensive checks on values that can never be malformed. addlightness measures that weight, removes it in small verified passes, gates every change against a regression check, and only claims a speedup the Welch test confirms. It's for anyone shipping AI-assisted code who wants the output trimmed without silently changing what it does.
 
 ## Features
 
@@ -90,20 +79,15 @@ flowchart LR
   D --> F[report before/after<br/>+ significance]
 ```
 
-Trimming runs in three ordered passes so cheap mechanical cleanup happens before
-any judgment work:
+Trimming runs in three ordered passes so cheap mechanical cleanup happens before any judgment work:
 
-1. **Mechanical** — unused imports/vars, no-else-return, useless catch/return,
-   redundant boolean compares. Lint-autofixable, zero judgment.
-2. **Semantic** — inline single-use wrappers, collapse redundant control flow,
-   drop only *proven-impossible* defensive checks.
-3. **Style** — shorten identifiers in narrow private scope, delete comments that
-   merely restate the code. Why-comments are kept.
+1. **Mechanical** — unused imports/vars, no-else-return, useless catch/return, redundant boolean compares. Lint-autofixable, zero judgment.
+2. **Semantic** — inline single-use wrappers, collapse redundant control flow, drop only *proven-impossible* defensive checks.
+3. **Style** — shorten identifiers in narrow private scope, delete comments that merely restate the code. Why-comments are kept.
 
 ## Weight formula
 
-Weight is a relative before/after metric — lower is lighter. It is not an
-absolute industry standard.
+Weight is a relative before/after metric — lower is lighter. It is not an absolute industry standard.
 
 ```text
 weight = 1.0*LOC + 2.0*cyclomatic + 1.5*imports + 1.0*functions + 3.0*nesting
@@ -111,10 +95,7 @@ weight = 1.0*LOC + 2.0*cyclomatic + 1.5*imports + 1.0*functions + 3.0*nesting
 % reduction = (before - after) / before * 100
 ```
 
-Nesting (3.0) and cyclomatic complexity (2.0) are weighted highest because they
-discriminate fat best; imports (1.5) penalize speculative-dependency surface; LOC
-and function count (1.0) are baseline size. The engine also emits a token proxy
-and the raw component metrics so the full table can be shown.
+Nesting (3.0) and cyclomatic complexity (2.0) are weighted highest because they discriminate fat best; imports (1.5) penalize speculative-dependency surface; LOC and function count (1.0) are baseline size. The engine also emits a token proxy and the raw component metrics so the full table can be shown.
 
 ## What it will NOT do
 
@@ -171,7 +152,7 @@ proof — run it after a trim.
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). Maintainer/architecture notes live in
-[CLAUDE.md](CLAUDE.md).
+[CLAUDE.md](CLAUDE.md). Docs site: [88plug.github.io/addlightness](https://88plug.github.io/addlightness).
 
 ## License
 

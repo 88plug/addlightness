@@ -4,9 +4,17 @@ site_url: https://88plug.github.io/addlightness/
 repo_url: https://github.com/88plug/addlightness
 repo_name: 88plug/addlightness
 edit_uri: edit/main/docs/
+use_directory_urls: true
+strict: true
 
 theme:
   name: material
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.instant
+    - content.code.copy
+    - search.suggest
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -22,11 +30,6 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
-  features:
-    - navigation.instant
-    - navigation.top
-    - content.code.copy
-    - search.suggest
 
 markdown_extensions:
   - admonition
@@ -36,7 +39,11 @@ markdown_extensions:
   - footnotes
   - tables
   - pymdownx.highlight
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.details
   - toc:
       permalink: true
