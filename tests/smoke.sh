@@ -3,7 +3,7 @@
 # Exits non-zero on first failure. Run from anywhere.
 set -uo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-cd "$ROOT"
+cd "$ROOT" || exit 1
 pass=0
 fail=0
 ok()  { pass=$((pass+1)); printf '  ok   %s\n' "$1"; }
