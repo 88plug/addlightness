@@ -5,6 +5,7 @@ Single-manifest layout: `.claude-plugin/plugin.json` is THE manifest Claude Code
 reads (it carries hooks + version), matching every shipped 88plug plugin. There is
 deliberately NO root plugin.json. Exit non-zero on any failure.
 """
+
 import json
 import re
 import subprocess
@@ -51,14 +52,26 @@ if mani:
             for hook in group.get("hooks", []):
                 cmd = hook.get("command", "")
                 for m in re.findall(r"\$\{CLAUDE_PLUGIN_ROOT\}/([^\"]+)", cmd):
-                    check((ROOT / m).is_file(), f"hook {event} references missing file: {m}")
-                check(isinstance(hook.get("timeout"), int), f"hook {event} timeout must be int seconds")
+                    check(
+                        (ROOT / m).is_file(),
+                        f"hook {event} references missing file: {m}",
+                    )
+                check(
+                    isinstance(hook.get("timeout"), int),
+                    f"hook {event} timeout must be int seconds",
+                )
 
 # --- discovery extras -------------------------------------------------------
 mkt = load_json(".claude-plugin/marketplace.json")
 if mkt:
-    check(mkt.get("name") == "addlightness", "marketplace.json name must be 'addlightness'")
-    check(isinstance(mkt.get("plugins"), list) and mkt["plugins"], "marketplace.json needs a plugins array")
+    check(
+        mkt.get("name") == "addlightness",
+        "marketplace.json name must be 'addlightness'",
+    )
+    check(
+        isinstance(mkt.get("plugins"), list) and mkt["plugins"],
+        "marketplace.json needs a plugins array",
+    )
 load_json("marketplace-entry.json")
 load_json("package.json")
 
@@ -66,23 +79,32 @@ load_json("package.json")
 for agent in (ROOT / "agents").glob("*.md"):
     txt = agent.read_text()
     check(txt.startswith("---"), f"agent {agent.name} missing YAML frontmatter")
-    check("name:" in txt and "description:" in txt and "tools:" in txt,
-          f"agent {agent.name} frontmatter missing name/description/tools")
+    check(
+        "name:" in txt and "description:" in txt and "tools:" in txt,
+        f"agent {agent.name} frontmatter missing name/description/tools",
+    )
 
 for skill in (ROOT / "skills").glob("*/SKILL.md"):
     txt = skill.read_text()
     check(txt.startswith("---"), f"skill {skill.parent.name} missing YAML frontmatter")
-    check("name:" in txt and "description:" in txt,
-          f"skill {skill.parent.name} frontmatter missing name/description")
+    check(
+        "name:" in txt and "description:" in txt,
+        f"skill {skill.parent.name} frontmatter missing name/description",
+    )
 
 # --- engines parse ----------------------------------------------------------
 for js in list((ROOT / "lib").glob("*.js")) + list((ROOT / "hooks").glob("*.js")):
     r = subprocess.run(["node", "--check", str(js)], capture_output=True, text=True)
-    check(r.returncode == 0, f"node --check failed: {js.relative_to(ROOT)}: {r.stderr.strip()}")
+    check(
+        r.returncode == 0,
+        f"node --check failed: {js.relative_to(ROOT)}: {r.stderr.strip()}",
+    )
 
 for sh in (ROOT / "scripts").glob("*.sh"):
     r = subprocess.run(["bash", "-n", str(sh)], capture_output=True, text=True)
-    check(r.returncode == 0, f"bash -n failed: {sh.relative_to(ROOT)}: {r.stderr.strip()}")
+    check(
+        r.returncode == 0, f"bash -n failed: {sh.relative_to(ROOT)}: {r.stderr.strip()}"
+    )
 
 # --- report -----------------------------------------------------------------
 if fails:
