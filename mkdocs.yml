@@ -1,5 +1,5 @@
 site_name: addlightness
-site_description: 'Claude Code plugin for AI code cleanup — measure weight, trim fat, verify equivalence, and benchmark the speedup.'
+site_description: 'AI code fat trim for Claude Code and Grok — measure weight, trim, verify equivalence, and benchmark the speedup.'
 site_url: https://88plug.github.io/addlightness/
 repo_url: https://github.com/88plug/addlightness
 repo_name: 88plug/addlightness

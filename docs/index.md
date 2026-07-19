@@ -1,6 +1,6 @@
 # addlightness
 
-Simplify, then add lightness — a Claude Code plugin that strips AI-generated code fat while preserving behavior, then benchmarks the speedup.
+AI code fat trim for Claude Code and Grok — measure weight, trim, verify equivalence, and benchmark the speedup.
 
 [![plugin-validate](https://github.com/88plug/addlightness/actions/workflows/plugin-validate.yml/badge.svg)](https://github.com/88plug/addlightness/actions/workflows/plugin-validate.yml)
 [![License: FSL-1.1-ALv2](https://img.shields.io/badge/license-FSL--1.1--ALv2-blue?style=flat)](https://github.com/88plug/addlightness/blob/main/LICENSE)
@@ -11,9 +11,9 @@ Simplify, then add lightness — a Claude Code plugin that strips AI-generated c
 
 ## Install
 
-From the 88plug marketplace (inside Claude Code):
+### Claude Code
 
-```bash
+```text
 /plugin marketplace add 88plug/claude-code-plugins
 /plugin install addlightness@88plug
 ```
