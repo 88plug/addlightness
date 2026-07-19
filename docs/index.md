@@ -138,3 +138,15 @@ No. The static ladder (syntax gate, structural/AST diff for Python, signature an
 - [Contributing](https://github.com/88plug/addlightness/blob/main/CONTRIBUTING.md)
 - [Architecture notes (CLAUDE.md)](https://github.com/88plug/addlightness/blob/main/CLAUDE.md)
 - [License (FSL-1.1-ALv2)](https://github.com/88plug/addlightness/blob/main/LICENSE)
+
+## Development
+
+Local clone (not the primary install path):
+
+```bash
+git clone https://github.com/88plug/addlightness.git
+cd addlightness
+./install.sh
+```
+
+Enable the plugin from its local path via Claude Code's `/plugin` command, or add it under `enabledPlugins` in `~/.claude/settings.json` once the marketplace is resolvable (`"<plugin>@<marketplace>"` form).
