@@ -18,6 +18,14 @@ From the 88plug marketplace (inside Claude Code):
 /plugin install addlightness@88plug
 ```
 
+### Grok Build
+
+```text
+grok plugin marketplace add 88plug/claude-code-plugins
+grok plugin install addlightness@88plug --trust
+```
+
+
 Then run `./install.sh` from the plugin root. It chmods hooks, lib, and benchmark scripts; checks for Node (required) and python3 (optional, for accurate `.py` metrics); and runs a `weigh.js` smoke test.
 
 !!! tip

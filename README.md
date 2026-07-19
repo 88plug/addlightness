@@ -25,6 +25,14 @@ Use it to cut technical debt and raise code quality on AI-assisted refactors. Mu
 /plugin install addlightness@88plug
 ```
 
+### Grok Build
+
+```text
+grok plugin marketplace add 88plug/claude-code-plugins
+grok plugin install addlightness@88plug --trust
+```
+
+
 Then run `./install.sh` from the plugin root. It chmods hooks, lib, and benchmark scripts; checks for Node (required) and python3 (optional, for accurate `.py` metrics); and smoke-tests `weigh.js`.
 
 ## Quickstart
